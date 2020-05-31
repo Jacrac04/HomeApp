@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>About This</h1>
+	<p>Coming Soon:</p>
+	<p>		-Calender</p>
+	<p>		-Notice board</p>
+	<p>		-Desktop Notifications</p>
+	<p>		-Mobile App</p>
+	{% if session.logged_in %}
+	<p>Contact developer at jacob@theracklyefts.co.uk</p>
+	{% endif %}
+	<p></p>
+	<p></p>
+	<p></p>
+	<p>To use this you must first create and account on this website and login.</p>
+ {% endblock %}

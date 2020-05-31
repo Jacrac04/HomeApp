@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div>
+<table id="t01">
+  <tr>
+    <th>Name</th>
+    <th>Status</th> 
+    <th>Last Updated</th>
+  </tr>
+  {% for entry in entries %}
+   <tr>
+    <td>{{ entry.username }}</td>
+    <td>{%if entry.status == 0%}<span style="color:green">Free</span>{%elif entry.status == 1%}<span style="color:orange">Working</span>{%elif entry.status == 2%}<span style="color:red">In a Meeting</span>{%elif entry.status == 3%}<span style="color:blue">Offline</span>{%else%}<span style="color:blue">{{entry.status}}</span>{% endif %}</td>
+    <td>{{entry.lastUpdate}}</td>
+  </tr>
+{% endfor %}
+
+</table>
+</div>
+
+<div id="f010">
+  
+  <form method="POST", name="options">
+  <input type="radio" id="Free" name="user_status" value="0" onclick="javascript:yesnoCheck();">
+  <label for="Free">Free</label><br>
+  <input type="radio" id="Working" name="user_status" value="1" onclick="javascript:yesnoCheck();">
+  <label for="Busy">Working</label><br>
+  <input type="radio" id="In a Meeting" name="user_status" value="2" onclick="javascript:yesnoCheck();">
+  <label for="In a Meeting">In a Meeting</label><br>
+  <input type="radio" id="Offline" name="user_status" value="3" onclick="javascript:yesnoCheck();">
+  <label for="Offline">Offline</label><br>
+  <input type="radio" id="Other" name="user_status" value="Other:" onclick="javascript:yesnoCheck();">
+  <label for="Other:">Other:</label>
+  <input id='o2' style="visibility:hidden" name="stat_other"><br><br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+</div>
+
+  <script type="text/javascript">
+
+function yesnoCheck() {
+    if (document.getElementById('Other').checked) {
+        document.getElementById('o2').style.visibility = 'visible';
+    }
+    else document.getElementById('o2').style.visibility = 'hidden';
+
+}
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Racklyefts</title>
+    
+
+    {% block head %}<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">{% endblock %}
+
+
+<style>
+
+
+table {
+  float: left;
+  width: 70%;
+  padding: 20px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#t01 th {
+  background-color: black;
+  color: white;
+}
+
+div#f010{
+  float: left;
+  width: 30%;
+  padding: 20px;
+  background: lightgrey 95%;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+div#f011{
+  float: left;
+  padding: 20px;
+  background: lightgrey 95%;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+</style>
+  </head>
+  <body>
+    {% include 'includes/_navbar.html' %}
+    <div class="container">
+      {% include 'includes/_messages.html' %}
+      {% block body %}{% endblock %}
+	  <p></p>
+	  {% include 'includes/_messages2.html' %}
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript">
+      CKEDITOR.replace('editor')
+    </script>
+  </body>
+</html>

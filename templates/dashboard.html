@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Dashboard <small> Welcome {{session.username}}</small></h1>
+  <div id="f011">
+  
+    <form method="POST", name="options">
+    <input type="radio" id="Free" name="user_status" value="0" onclick="javascript:yesnoCheck();">
+    <label for="Free">Free</label><br>
+    <input type="radio" id="Working" name="user_status" value="1" onclick="javascript:yesnoCheck();">
+    <label for="Busy">Busy</label><br>
+    <input type="radio" id="In a Meeting" name="user_status" value="2" onclick="javascript:yesnoCheck();">
+    <label for="In a Meeting">In a Meeting</label><br>
+    <input type="radio" id="Offline" name="user_status" value="3" onclick="javascript:yesnoCheck();">
+    <label for="Offline">Offline</label><br>
+    <input type="radio" id="Other" name="user_status" value="Other:" onclick="javascript:yesnoCheck();">
+    <label for="Other:">Other:</label>
+    <input id='o2' style="visibility:hidden" name="stat_other"><br><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+  
+  </div>
+  
+    <script type="text/javascript">
+  
+  function yesnoCheck() {
+      if (document.getElementById('Other').checked) {
+          document.getElementById('o2').style.visibility = 'visible';
+      }
+      else document.getElementById('o2').style.visibility = 'hidden';
+  
+  }
+  </script>
+{% if session.admin %}
+  <form action="" method="POST">
+    
+    <button type="submit" class="btn btn-primary">SHUT DOWN SERVER</button>
+  </form>
+{% endif %}
+{% endblock %}
+
+

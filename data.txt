@@ -1,1 +1,1 @@
-{"familyname": "Family Name", "calendarID": "jacrac04@gmail.com", "parentOnlyChatSymbol": "!"}
+{"familyname": "Family Name", "calendarID": "test@gmail.com", "parentOnlyChatSymbol": "!"}
